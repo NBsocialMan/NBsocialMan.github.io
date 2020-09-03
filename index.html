@@ -1,135 +1,18 @@
-<html>
-
-<head>
-    <title>基于vue+elementui</title>
-    <!-- 引入样式 -->
-    <link rel="stylesheet" href="lib/elementui/theme-chalk/index.css" type="text/css">
-    <style>
-      /* 所有 */
-      #app{
-        width:100%; height:100%;
-      }
-
-      /* 头 */
-      .header {
-        color: rgba(255,255,255,0.75);
-        line-height: 60px;
-        background-color: #24292e;
-        text-align: center;
-      }
-      .header div{
-        display: inline;
-      }
-      .title{
-      }
-      .author{
-        float: right;
-      }
-      .author-img{
-        width: 20px;
-        height: 20px;
-      }
-
-      /* 内容区 */
-      .container{
-        min-height: 600px;
-        width:100%;
-        height: 100%
-      }
-
-      /* 左边内容区 */
-      .left {
-        color: #4b595f;
-        width: 200px;
-      }
-      .left ul{
-        height: 90%;
-      }
-
-      /* 右边内容区 */
-      .right{
-        min-width: 200px;
-      }
-      tbody{
-        font-size: 15px;
-        color: #4b595f;
-      }
-
-    </style>
-</head>
-<body>
-<div id="app">
-  <el-container class="container">
-    <el-header class="header">
-      <div class="title">
-        <span>余小乐的个人demo网站</span>
-      </div>
-      <div @click="openGitHub" class="author">
-        <i class="el-icon-location-outline">yuleGH</i>
-        <img alt="@yuleGH" class="author-img" src="https://avatars2.githubusercontent.com/u/31040588?s=40&amp;v=4">
-      </div>
-    </el-header>
-
-    <el-container>
-      <el-aside class="left">
-        <el-menu :default-active="activeIndex">
-          <el-menu-item index="1" @click="open(aboutMeUrl)"><i class="el-icon-service"></i>关于我</el-menu-item>
-          <el-submenu index="firstMenu.id" v-for="firstMenu in menus" :key="firstMenu.id">
-            <template slot="title"><i :class="firstMenu.iconClass"></i>{{ firstMenu.name }}</template>
-            <el-menu-item-group v-for="secondMenu in firstMenu.children" :key="secondMenu.id">
-              <template slot="title">{{ secondMenu.name }}</template>
-              <el-menu-item v-for="thirdMenu in secondMenu.children" index="thirdMenu.id" :key="thirdMenu.id" @click="open(thirdMenu.url)">{{ thirdMenu.name }}</el-menu-item>
-            </el-menu-item-group>
-          </el-submenu>
-      </el-aside>
-
-      <el-main class="right">
-          <iframe style="width:100%; height:100%; border: 0;" :src="iframeUrl"></iframe>
-      </el-main>
-
-    </el-container>
-  </el-container>
-</div>
-<!-- 引入组件库 -->
-<script type="text/javascript" src="lib/vue.js"></script>
-<script type="text/javascript" src="lib/elementui/index.js"></script>
-
-<script type="text/javascript">
-    new Vue({
-        el: "#app",
-        data: {
-          activeIndex : "1",
-          aboutMeUrl : "aboutme.html",
-          iframeUrl : "aboutme.html",
-
-          menus : [
-            {
-               name: "dialog",
-               id: "dialog",
-               iconClass: "el-icon-message",
-               children:[
-                 {
-                   name: "Notification 通知",
-                   id: "notification",
-                   children: [
-                     {name: "demo1", id: "noti-demo1", url: "dialog/notification/notification.html"}
-                   ]
-                 }
-               ]
-            }
-          ]
-        },
-        methods: {
-          open(url){
-            this.iframeUrl = url;
-          },
-          openGitHub(){
-            window.open("https://github.com/yuleGH", "_blank");
-          }
-        }
-    });
-</script>
-
-</body>
-
-</html>
+body {
+  background:
+    43.3px 50px/86.6px 150px radial-gradient(1% 66% at 0 100%, tan 99%, transparent 0),
+    43.3px 100px/86.6px 150px radial-gradient(1% 66% at 100% 0, tan 99%, transparent 0),
+    0 25px/86.6px 150px radial-gradient(1% 66% at 100% 0, tan 99%, transparent 0),
+    0 125px/86.6px 150px radial-gradient(1% 66% at 0 100%, tan 99%, transparent 0),
+    0 100px/86.6px 150px linear-gradient(30deg, white 2.5%, tan 0 7.5%, white 0 12%, tan 0 13%, transparent 0),
+    0 125px/86.6px 150px linear-gradient(30deg, white 5%, tan 0 10%, white 0 12.5%, transparent 0),
+    43.3px 100px/86.6px 150px linear-gradient(210deg, white 5%, tan 0 10%, white 0 12.5%, transparent 0),
+    43.3px 125px/86.6px 150px linear-gradient(210deg, white 2.5%, tan 0 7.5%, white 0 12%, tan 0 13%, transparent 0),
+    43.3px 25px/86.6px 150px linear-gradient(30deg, white 2.5%, tan 0 7.5%, white 0 12%, tan 0 13%, transparent 0),
+    43.3px 50px/86.6px 150px linear-gradient(30deg, white 5%, tan 0 10%, white 0 12.5%, transparent 0),
+    0 25px/86.6px 150px linear-gradient(210deg, white 5%, tan 0 10%, white 0 12.5%, transparent 0),
+    0 50px/86.6px 150px linear-gradient(210deg, white 2.5%, tan 0 7.5%, white 0 12%, tan 0 13%, transparent 0),
+    43.3px 75px/86.6px 150px linear-gradient(150deg, transparent 37%, tan 0 38%, white 0 42.5%, tan 0 47.5%, white 0 52.5%, tan 0 57.5%, white 0 62%, tan 0 63%, transparent 0),
+    0 0/86.6px 150px linear-gradient(150deg, transparent 37%,tan 0 38%, white 0 42.5%, tan 0 47.5%, white 0 52.5%, tan 0 57.5%, white 0 62%, tan 0 63%, transparent 0),
+    0 0/86.6px 150px linear-gradient(90deg, tan 1%, white 0 10%, tan 0 20%, white 0 30%, tan 0 40%, white 0 49%, tan 0 51%, white 0 60%, tan 0 70%, white 0 80%, tan 0 90%, white 0 99%, tan 0);
+}
